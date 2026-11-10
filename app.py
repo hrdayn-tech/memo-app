@@ -44,7 +44,7 @@ def api_get_memo(id):
     memo = get_memo(id)
 
     if not memo:
-        return jsonify({"error": "メモが見つかりません"}), 404
+        return jsonify({"error": f"メモ（ID:{id}）が見つかりません"}), 404
 
     return jsonify(memo)
 
@@ -54,7 +54,7 @@ def api_update_memo(id):
     # 更新対象が存在するか確認
     memo = get_memo(id)
     if not memo:
-        return jsonify({"error": "メモが見つかりません"}), 404
+        return jsonify({"error": f"メモ（ID:{id}）が見つかりません"}), 404
 
     data = request.get_json()
     if not data:
@@ -78,7 +78,7 @@ def api_delete_memo(id):
     """指定されたIDのメモを削除する"""
     memo = get_memo(id)
     if not memo:
-        return jsonify({"error": "メモが見つかりません"}), 404
+        return jsonify({"error": f"メモ（ID:{id}）が見つかりません"}), 404
     
     delete_memo(id)
     return jsonify({"message": f"メモ（ID:{id}）を削除しました"})
