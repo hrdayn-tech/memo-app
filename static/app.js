@@ -114,7 +114,7 @@ async function deleteMemo() {
     });
 
     resetForm();
-    fetchMemo();
+    fetchMemos();
 }
 
 // --- フォームをリセットする ---
